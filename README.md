@@ -55,20 +55,104 @@ Create a structuring element (kernel) of suitable size.
 
 Compare the original, eroded, and dilated images.
 
-## Program
-
 ## Developed By
 
-**Name:** ____________________________
+**Name:** Tamil Pavalan M
 
-**Register No:** ______________________
+**Register No:** 212223110058
 
+## Program
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+# Create a blank image
+image = np.zeros((500, 500, 3), dtype=np.uint8)
+# Add text on the image using cv2.putText
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(image, 'TAMIL PAVALAN M', (100, 250), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
+array([[[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       ...,
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]],
+
+       [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        ...,
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]], shape=(500, 500, 3), dtype=uint8)
+# Display the input image
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for displaying
+plt.title("Input Image with Text")
+plt.axis('off')
+(np.float64(-0.5), np.float64(499.5), np.float64(499.5), np.float64(-0.5))
+
+# Create a simple square kernel (3x3)
+kernel = np.ones((3, 3), np.uint8)
+# Apply erosion (shrinking effect)
+eroded_image = cv2.erode(image, kernel, iterations=1)
+# Display the eroded image
+plt.imshow(cv2.cvtColor(eroded_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Eroded Image")
+plt.axis('off')
+(np.float64(-0.5), np.float64(499.5), np.float64(499.5), np.float64(-0.5))
+
+# Apply dilation (expanding effect)
+dilated_image = cv2.dilate(image, kernel, iterations=1)
+# Display the dilated image
+plt.imshow(cv2.cvtColor(dilated_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Dilated Image")
+plt.axis('off')
+(np.float64(-0.5), np.float64(499.5), np.float64(499.5), np.float64(-0.5))
+
+```
 ## Output
 
 ### Original Image
 
 - A text image containing characters is displayed.
 - The image serves as the input for morphological processing.
+
+<img width="477" height="507" alt="image" src="https://github.com/user-attachments/assets/782a797b-0fd6-43b1-ae8f-52687bad15c9" />
 
 ### Erosion
 
@@ -77,12 +161,16 @@ Compare the original, eroded, and dilated images.
 - The thickness of the characters is reduced.
 - Object boundaries shrink inward.
 
+<img width="472" height="511" alt="image" src="https://github.com/user-attachments/assets/b6dbe043-6044-4451-a614-a86c31763f84" />
+
 ### Dilation
 
 - Original image is displayed.
 - Dilated image is displayed.
 - The thickness of the characters increases.
 - Object boundaries expand outward.
+
+<img width="471" height="502" alt="image" src="https://github.com/user-attachments/assets/aebfc9e7-c546-4465-afa0-af3aac6038aa" />
 
 ## Result
 
